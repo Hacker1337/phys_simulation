@@ -81,9 +81,10 @@ class Simulator:
         return self.rings        
     
     def collide(self, ring1, ring2):
-        v = ring1.vy
-        ring1.vy = ring2.vy
+        v = (ring1.vy + ring2.vy)/2
+        ring1.vy = v
         ring2.vy = v
+        
         if (ring2.y < ring1.y):
             t = ring1
             ring1 = ring2
